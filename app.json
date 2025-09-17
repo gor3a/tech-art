@@ -40,7 +40,8 @@
       "expo-localization",
       "expo-router",
       "expo-web-browser",
-      "expo-splash-screen"
+      "expo-splash-screen",
+      "expo-font"
     ]
   }
 }
