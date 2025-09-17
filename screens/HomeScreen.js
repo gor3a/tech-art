@@ -13,7 +13,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 const { width } = Dimensions.get('window');
 
 const HomeScreen = ({ navigation }) => {
-  const { t, currentLanguage } = useLanguage();
+  const { t, currentLanguage, isRTL, getTextAlign, getFlexDirection } = useLanguage();
   const [featuredArticles, setFeaturedArticles] = useState([]);
 
   useEffect(() => {
@@ -51,27 +51,27 @@ const HomeScreen = ({ navigation }) => {
     },
     header: {
       marginBottom: 30,
-      alignItems: 'flex-start',
+      alignItems: isRTL() ? 'flex-end' : 'flex-start',
     },
     title: {
       fontSize: 32,
       fontWeight: 'bold',
       color: '#2c3e50',
       marginBottom: 10,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     subtitle: {
       fontSize: 16,
       color: '#7f8c8d',
       lineHeight: 24,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     sectionTitle: {
       fontSize: 24,
       fontWeight: 'bold',
       color: '#2c3e50',
       marginBottom: 20,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     featuredCard: {
       backgroundColor: '#ffffff',
@@ -92,17 +92,17 @@ const HomeScreen = ({ navigation }) => {
       fontWeight: 'bold',
       color: '#2c3e50',
       marginBottom: 8,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     cardSummary: {
       fontSize: 14,
       color: '#7f8c8d',
       lineHeight: 20,
       marginBottom: 12,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     cardFooter: {
-      flexDirection: 'row',
+      flexDirection: getFlexDirection('row'),
       justifyContent: 'space-between',
       alignItems: 'center',
     },

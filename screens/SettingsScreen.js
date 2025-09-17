@@ -10,7 +10,7 @@ import {
 import { useLanguage } from '../contexts/LanguageContext';
 
 const SettingsScreen = () => {
-  const { t, currentLanguage, switchLanguage, switchLanguageWithRestart, availableLanguages } = useLanguage();
+  const { t, currentLanguage, switchLanguage, switchLanguageWithRestart, availableLanguages, isRTL, getTextAlign, getFlexDirection } = useLanguage();
   const [showLanguageModal, setShowLanguageModal] = useState(false);
 
   const handleLanguageChange = (languageCode) => {
@@ -55,7 +55,7 @@ const SettingsScreen = () => {
       fontSize: 28,
       fontWeight: 'bold',
       color: '#2c3e50',
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     content: {
       flex: 1,
@@ -76,7 +76,7 @@ const SettingsScreen = () => {
       elevation: 5,
     },
     settingHeader: {
-      flexDirection: 'row',
+      flexDirection: getFlexDirection('row'),
       justifyContent: 'space-between',
       alignItems: 'center',
     },
@@ -84,7 +84,7 @@ const SettingsScreen = () => {
       fontSize: 16,
       fontWeight: '600',
       color: '#2c3e50',
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     settingValue: {
       fontSize: 14,
@@ -95,7 +95,7 @@ const SettingsScreen = () => {
       fontSize: 14,
       color: '#7f8c8d',
       marginTop: 8,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     modalOverlay: {
       flex: 1,
@@ -115,7 +115,7 @@ const SettingsScreen = () => {
       fontWeight: 'bold',
       color: '#2c3e50',
       marginBottom: 20,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     languageOption: {
       paddingVertical: 15,
@@ -129,15 +129,15 @@ const SettingsScreen = () => {
     languageOptionText: {
       fontSize: 16,
       color: '#2c3e50',
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     selectedLanguageOptionText: {
       color: '#3498db',
       fontWeight: '600',
     },
     modalButtons: {
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
+      flexDirection: getFlexDirection('row'),
+      justifyContent: isRTL() ? 'flex-start' : 'flex-end',
       marginTop: 20,
       paddingTop: 20,
       borderTopWidth: 1,

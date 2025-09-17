@@ -13,7 +13,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 const ArticleDetailScreen = ({ route }) => {
   const router = useRouter();
   const { article } = route.params;
-  const { t } = useLanguage();
+  const { t, isRTL, getTextAlign, getFlexDirection } = useLanguage();
 
   const goBack = () => {
     router.back();
@@ -25,7 +25,7 @@ const ArticleDetailScreen = ({ route }) => {
       backgroundColor: '#ffffff',
     },
     header: {
-      flexDirection: 'row',
+      flexDirection: getFlexDirection('row'),
       alignItems: 'center',
       padding: 20,
       paddingTop: 10,
@@ -34,7 +34,7 @@ const ArticleDetailScreen = ({ route }) => {
     },
     backButton: {
       padding: 8,
-      marginRight: 10,
+      [isRTL() ? 'marginLeft' : 'marginRight']: 10,
     },
     backButtonText: {
       fontSize: 16,
@@ -46,7 +46,7 @@ const ArticleDetailScreen = ({ route }) => {
       fontSize: 18,
       fontWeight: 'bold',
       color: '#2c3e50',
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     content: {
       flex: 1,
@@ -60,10 +60,10 @@ const ArticleDetailScreen = ({ route }) => {
       color: '#2c3e50',
       marginBottom: 15,
       lineHeight: 36,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     meta: {
-      flexDirection: 'row',
+      flexDirection: getFlexDirection('row'),
       flexWrap: 'wrap',
       marginBottom: 20,
       paddingBottom: 20,
@@ -71,7 +71,7 @@ const ArticleDetailScreen = ({ route }) => {
       borderBottomColor: '#ecf0f1',
     },
     metaItem: {
-      marginRight: 15,
+      [isRTL() ? 'marginLeft' : 'marginRight']: 15,
       marginBottom: 8,
     },
     metaLabel: {
@@ -94,31 +94,34 @@ const ArticleDetailScreen = ({ route }) => {
       borderRadius: 16,
       fontSize: 12,
       fontWeight: '600',
-      alignSelf: 'flex-start',
+      alignSelf: isRTL() ? 'flex-end' : 'flex-start',
       marginBottom: 20,
     },
     summary: {
       fontSize: 18,
-      color: '#34495e',
       lineHeight: 28,
+      color: '#7f8c8d',
       marginBottom: 25,
       fontStyle: 'italic',
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     articleContent: {
       fontSize: 16,
       color: '#2c3e50',
       lineHeight: 26,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     featuredBadge: {
       position: 'absolute',
-      top: 20,
-      right: 20,
-      backgroundColor: '#f39c12',
-      borderRadius: 16,
-      paddingHorizontal: 12,
-      paddingVertical: 6,
+      top: 15,
+      [isRTL() ? 'left' : 'right']: 20,
+      backgroundColor: '#e74c3c',
+      color: '#ffffff',
+      paddingHorizontal: 8,
+      paddingVertical: 4,
+      borderRadius: 12,
+      fontSize: 10,
+      fontWeight: 'bold',
     },
     featuredText: {
       color: '#ffffff',

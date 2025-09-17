@@ -13,7 +13,7 @@ import { I18nManager } from 'react-native';
 
 const ArticlesScreen = () => {
   const router = useRouter();
-  const { t, currentLanguage } = useLanguage();
+  const { t, currentLanguage, isRTL, getTextAlign, getFlexDirection } = useLanguage();
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true); 
 
@@ -81,7 +81,7 @@ const ArticlesScreen = () => {
       fontSize: 28,
       fontWeight: 'bold',
       color: '#2c3e50',
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     loadingContainer: {
       flex: 1,
@@ -116,17 +116,17 @@ const ArticlesScreen = () => {
       fontWeight: 'bold',
       color: '#2c3e50',
       marginBottom: 8,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     cardSummary: {
       fontSize: 14,
       color: '#7f8c8d',
       lineHeight: 20,
       marginBottom: 15,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     cardFooter: {
-      flexDirection: 'row',
+      flexDirection: getFlexDirection('row'),
       justifyContent: 'space-between',
       alignItems: 'flex-end',
     },
@@ -138,12 +138,12 @@ const ArticlesScreen = () => {
       color: '#3498db',
       fontWeight: '600',
       marginBottom: 4,
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     cardAuthor: {
       fontSize: 12,
       color: '#95a5a6',
-      textAlign: 'left',
+      textAlign: getTextAlign('left'),
     },
     cardReadTime: {
       fontSize: 12,
@@ -153,7 +153,7 @@ const ArticlesScreen = () => {
     featuredBadge: {
       position: 'absolute',
       top: 15,
-      right: 15,
+      [isRTL() ? 'left' : 'right']: 15,
       backgroundColor: '#f39c12',
       borderRadius: 12,
       width: 24,
