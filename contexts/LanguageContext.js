@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Updates from 'expo-updates';
 
-import i18n, { changeLanguage, getCurrentLanguage, isRTL, t } from '../i18n';
+import i18n, { changeLanguage, getCurrentLanguage, isRTL, t, getTextAlign, getFlexDirection } from '../i18n';
 
 const LanguageContext = createContext();
 
@@ -85,6 +85,9 @@ export const LanguageProvider = ({ children }) => {
     isLoading,
     t, // Translation function
     i18n, // i18n instance
+    isRTL, // RTL detection function
+    getTextAlign, // RTL-aware text alignment
+    getFlexDirection, // RTL-aware flex direction
     availableLanguages: [
       { code: 'en', name: 'English', nativeName: 'English' },
       { code: 'ar', name: 'Arabic', nativeName: 'العربية' }
