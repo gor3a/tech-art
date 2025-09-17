@@ -8,6 +8,10 @@
     "scheme": "techartv2",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "locales": {
+      "en": "./locales/en.json",
+      "ar": "./locales/ar.json"
+    },
     "splash": {
       "image": "./assets/images/splash-icon.png",
       "resizeMode": "contain",
@@ -29,11 +33,13 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+    "extra": {
+      "supportsRTL": true
+    },
     "plugins": [
-      "expo-router"
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+      "expo-localization",
+      "expo-router",
+      "expo-web-browser"
+    ]
   }
 }

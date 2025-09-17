@@ -1,0 +1,44 @@
+{
+  "app": {
+    "title": "Tech Art",
+    "subtitle": "Explore the World of Technology"
+  },
+  "navigation": {
+    "home": "Home",
+    "articles": "Articles",
+    "settings": "Settings"
+  },
+  "articles": {
+    "title": "Tech Articles",
+    "readMore": "Read More",
+    "backToList": "Back to Articles",
+    "noArticles": "No articles available",
+    "loading": "Loading articles...",
+    "featured": "Featured",
+    "author": "Author",
+    "published": "Published",
+    "readTime": "Read Time"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "selectLanguage": "Select Language",
+    "languageChangeMessage": "The app will restart to apply the new language settings.",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "save": "Save"
+  },
+  "home": {
+    "welcome": "Welcome to Tech Art",
+    "description": "Discover the latest in technology, innovation, and digital art. Explore our curated collection of articles covering cutting-edge topics in the tech world.",
+    "featuredArticles": "Featured Articles",
+    "viewAllArticles": "View All Articles"
+  }
+}
